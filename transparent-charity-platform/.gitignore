@@ -1,0 +1,30 @@
+# Ignore environment variable files
+*.env
+
+# Python virtual environment
+venv/
+__pycache__/
+
+# Truffle build directory
+blockchain/build/
+
+# Node modules and package lock files
+node_modules/
+frontend/package-lock.json
+
+# Log files
+*.log
+
+# Ignore generated files
+*.pyc
+.DS_Store
+
+# Ignore OS-specific files
+Thumbs.db
+
+# Ignore IDE/editor config files
+.vscode/
+.idea/
+
+# Ignore any extra .gitkeep files
+*.gitkeep
