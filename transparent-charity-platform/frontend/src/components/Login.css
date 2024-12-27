@@ -1,0 +1,154 @@
+@keyframes slideInBackgroundLogin {
+    0% {
+      background-position: -100% center;
+    }
+    100% {
+      background-position: center;
+    }
+  }
+  
+  .login-page {
+    background-image: url('https://img.freepik.com/free-photo/elegant-blue-background-business-presentation_1017-46755.jpg?t=st=1735321781~exp=1735325381~hmac=481904093ab668f5ddbaa59f318a34eb98ff63ef4151f6a55695f448f5f73f52&w=1380');
+    background-size: cover;
+    background-position: -100% center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideInBackgroundLogin 3s ease-out forwards;
+  }
+  
+  .login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: "Arial", sans-serif;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .tabs button.active {
+    font-weight: bold;
+    color: #4333d6 !important;
+    border-bottom: 3px solid #4333d6 !important;
+  }
+  
+  .form-container {
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  
+  .password-field {
+    position: relative;
+  }
+  
+  .password-field input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+  }
+  
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin: 15px 0;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+  
+  .remember-me input {
+    margin-right: 5px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(45deg, #4333d6, #73c5e5);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .login-button:hover {
+    transform: scale(1.02);
+    background: linear-gradient(45deg, #73c5e5, #4333d6);
+  }
+  
+  .signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .signup-link a {
+    color: #4333d6;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 15px;
+    }
+  
+    .tabs button {
+      font-size: 14px;
+    }
+  }
+  
