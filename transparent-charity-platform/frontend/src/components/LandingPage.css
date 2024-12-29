@@ -50,8 +50,8 @@
     background-position: center;
     height: 100vh;
     text-align: center;
-    animation: slideIn 3s ease-in-out infinite;
-  }
+    animation: slideIn 3s ease-in-out; 
+}
   
   .header {
     margin-top: 50px;

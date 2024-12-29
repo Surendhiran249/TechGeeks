@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import './Login.css';
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState("donor");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -13,8 +15,13 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/home"); 
+  };
+
   return (
-    <div className="login-page">
+    <div className="login-background">
       <div className="login-container">
         <div className="tabs">
           <button
@@ -39,7 +46,7 @@ const Login = () => {
 
         <div className="form-container">
           <h2>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Login</h2>
-          <form>
+          <form onSubmit={handleLogin}>
             <label>
               {activeTab === "charity" ? "Charity Number" : "Email"}
               <input
@@ -67,6 +74,9 @@ const Login = () => {
               <label className="remember-me">
                 <input type="checkbox" /> Remember me
               </label>
+              <button type="button" className="forgot-password" onClick={() => alert('Redirect to password recovery')}>
+                Forgot your password?
+              </button>
             </div>
             <button type="submit" className="login-button">
               Log in

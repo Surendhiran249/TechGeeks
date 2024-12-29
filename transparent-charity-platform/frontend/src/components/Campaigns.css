@@ -1,0 +1,134 @@
+.campaigns-page {
+    min-height: 100vh;
+    background: linear-gradient(to right, white, lightblue);
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.campaigns-header {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+.campaigns-header h1 {
+    font-size: 2.5rem;
+    color: #007acc;
+}
+
+.campaigns-header p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.campaign-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.campaign-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.campaign-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007acc;
+}
+
+.campaign-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.campaign-btn {
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.campaign-btn:hover {
+    background-color: #005fa3;
+}
+
+.campaign-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.campaign-modal-content {
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.campaign-modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.campaign-modal-content p {
+    margin-bottom: 20px;
+}
+
+.campaign-close-btn {
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.campaign-close-btn:hover {
+    background-color: #005fa3;
+}
+
+.back-home-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.back-home-btn:hover {
+    background-color: #005fa3;
+}
