@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Connect to Ganache
 ganache_url = os.getenv("GANACHE_URL")
 web3 = Web3(Web3.HTTPProvider(ganache_url))
-
+print(web3.is_connected())
 # Load the deployed contract
 contract_address = os.getenv("CONTRACT_ADDRESS")
 with open("path_to_abi.json", "r") as abi_file:
