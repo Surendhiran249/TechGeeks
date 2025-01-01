@@ -45,8 +45,8 @@ def simulate_donation(sender_address, private_key, amount_ether):
         print(f"Error during donation: {e}")
 
 # Replace these values with your test account details
-SENDER_ADDRESS = "0x4231cf40B2ACE43D2533f441308fD170cBaE1338"
-PRIVATE_KEY = "0x671fd9858236daf6f8de829882449d724ce58999a0eda3cd1ed1cb090a04cc41"
+SENDER_ADDRESS = "0xf62C22833aB927829522f1451A042bAa6090BeCA"
+PRIVATE_KEY = "0xf87c4ca0865148e3079e6024df1eb29ce697c0c05e961c9eb548cc962cc7ce2e"
 
 if __name__ == "__main__":
     # Simulate a donation of 1 Ether
