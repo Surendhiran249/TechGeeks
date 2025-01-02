@@ -5,13 +5,15 @@ contract Charity {
     struct Donation {
         address donor;
         uint256 amount;
+        string name;
+        string method;
     }
 
     Donation[] public donations;
 
     // Donate and store donation details
-    function donate() public payable {
-        donations.push(Donation(msg.sender, msg.value));
+    function donate(string memory name, string memory method) public payable {
+        donations.push(Donation(msg.sender, msg.value, name, method));
     }
 
     // Get total donations in wei

@@ -18,6 +18,16 @@
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "method",
+        "type": "string"
       }
     ],
     "stateMutability": "view",
@@ -25,7 +35,18 @@
     "constant": true
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "method",
+        "type": "string"
+      }
+    ],
     "name": "donate",
     "outputs": [],
     "stateMutability": "payable",

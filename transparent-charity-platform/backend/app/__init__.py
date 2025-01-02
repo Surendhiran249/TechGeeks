@@ -1,7 +1,11 @@
+# app/__init__.py
 from flask import Flask
 from app.config import Config
-from app.models.user import db
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+
+# Initialize SQLAlchemy here (only once)
+db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
@@ -9,6 +13,10 @@ def create_app():
     
     # Enable CORS for all routes, with specific origin (localhost:3000)
     CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
+
+    # Import models here to make sure they are loaded
+    from app.models.user import User  # Importing User model
+    from app.models.donation import DonationModel  # Importing DonationModel
 
     # Initialize Database
     db.init_app(app)

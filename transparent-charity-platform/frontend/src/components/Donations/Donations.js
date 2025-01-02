@@ -13,23 +13,6 @@ const Donation = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Fetch bank and cash donation details
-    const fetchDonationDetails = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:5000/donations");
-        const data = await response.json();
-        // Assume response contains bank and cash details
-        setBankDetails(data.bankDetails);
-        setCashDetails(data.cashDetails);
-      } catch (error) {
-        console.error("Error fetching donation details:", error);
-      }
-    };
-
-    fetchDonationDetails();
-  }, []);
-
   const handleMethodChange = (event) => {
     setSelectedMethod(event.target.value);
   };
@@ -48,11 +31,11 @@ const Donation = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+  
     // Check if all required fields are filled
     if (amount && name && selectedMethod) {
       const donationData = {
-        amount: amount,
+        amount: amount,  // User-entered amount
         name: name,
         method: selectedMethod,
         cardDetails: cardDetails,
@@ -81,6 +64,8 @@ const Donation = () => {
       alert('Please fill all fields');
     }
   };
+  
+
 
   const handleHomeRedirect = () => {
     navigate('/home');
