@@ -3,11 +3,12 @@ from app.config import Config
 from app.models.user import db
 from flask_cors import CORS
 
-
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    CORS(app)
+    
+    # Enable CORS for all routes, with specific origin (localhost:3000)
+    CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
 
     # Initialize Database
     db.init_app(app)

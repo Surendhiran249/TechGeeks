@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Donations.css';
 
@@ -8,8 +8,27 @@ const Donation = () => {
   const [name, setName] = useState('');
   const [cardDetails, setCardDetails] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [bankDetails, setBankDetails] = useState(null);
+  const [cashDetails, setCashDetails] = useState(null);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch bank and cash donation details
+    const fetchDonationDetails = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:5000/donations");
+        const data = await response.json();
+        // Assume response contains bank and cash details
+        setBankDetails(data.bankDetails);
+        setCashDetails(data.cashDetails);
+      } catch (error) {
+        console.error("Error fetching donation details:", error);
+      }
+    };
+
+    fetchDonationDetails();
+  }, []);
 
   const handleMethodChange = (event) => {
     setSelectedMethod(event.target.value);
@@ -27,10 +46,39 @@ const Donation = () => {
     setCardDetails(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (amount && name) {
-      setShowPopup(true);
+    
+    // Check if all required fields are filled
+    if (amount && name && selectedMethod) {
+      const donationData = {
+        amount: amount,
+        name: name,
+        method: selectedMethod,
+        cardDetails: cardDetails,
+      };
+  
+      try {
+        const response = await fetch('http://localhost:5000/donations/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(donationData),
+        });
+  
+        if (response.ok) {
+          const result = await response.json();
+          setShowPopup(true); // Show success popup
+        } else {
+          throw new Error('Failed to process donation');
+        }
+      } catch (error) {
+        console.error('Error during donation:', error);
+        alert('Failed to process donation.');
+      }
+    } else {
+      alert('Please fill all fields');
     }
   };
 
@@ -61,7 +109,6 @@ const Donation = () => {
           </select>
         </div>
 
-
         {selectedMethod === 'online' && (
           <div className="online-payment">
             <h3>Enter your payment details:</h3>
@@ -85,18 +132,18 @@ const Donation = () => {
             />
           </div>
         )}
-        {selectedMethod === 'bank' && (
+        {selectedMethod === 'bank' && bankDetails && (
           <div className="bank-transfer">
             <h3>Bank Transfer Details:</h3>
             <p>Please transfer the amount to the following bank account:</p>
-            <p>Account Number: 1234567890</p>
-            <p>IFSC Code: ABCD1234</p>
+            <p>Account Number: {bankDetails.accountNumber}</p>
+            <p>IFSC Code: {bankDetails.ifscCode}</p>
           </div>
         )}
-        {selectedMethod === 'cash' && (
+        {selectedMethod === 'cash' && cashDetails && (
           <div className="cash-donation">
             <h3>Visit our office for cash donations:</h3>
-            <p>We are located at: XYZ Street, City, ZIP Code</p>
+            <p>We are located at: {cashDetails.address}</p>
           </div>
         )}
 

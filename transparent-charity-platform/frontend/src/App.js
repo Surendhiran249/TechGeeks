@@ -8,6 +8,7 @@ import Campaigns from './components/Campaigns/Campaigns';
 import Donation from './components/Donations/Donations';
 import Transparency from './components/Transparency/Transparency';
 import UserDashboard from './components/Dashboard/UserDashboard';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
 import './App.css';
 
 const App = () => {
@@ -17,11 +18,46 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/campaigns" element={<Campaigns />} />
-        <Route path="/donation" element={<Donation />} />
-        <Route path="/transparency" element={<Transparency />} />
-        <Route path="/userdashboard" element={<UserDashboard />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/campaigns"
+          element={
+            <ProtectedRoute>
+              <Campaigns />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/donation"
+          element={
+            <ProtectedRoute>
+              <Donation />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/transparency"
+          element={
+            <ProtectedRoute>
+              <Transparency />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/userdashboard"
+          element={
+            <ProtectedRoute>
+              <UserDashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );
