@@ -1,7 +1,7 @@
 Transparent Charity Platform Using Blockchain
 
 Team: TechGeeks
-This project was developed by the team TechGeeks, consisting of three members:
+This project was developed by the team TechGeeks:
 -Surendhiran M
 -VijaySyam B K
 -Yaswanth G
