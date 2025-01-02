@@ -27,8 +27,8 @@ Ganache (for running a personal blockchain)
 Project Setup
 Step 1: Clone the Repository
 Clone the repository to your local machine:
-git clone https://github.com/your-repository-link.git
-cd your-project-folder
+git clone https://github.com/Surendhiran249/TechGeeks
+cd transparent-charity-platform
 
 Step 2: Setting Up the Virtual Environment (Backend)
 
